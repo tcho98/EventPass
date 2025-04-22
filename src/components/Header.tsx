@@ -44,19 +44,7 @@ const Header = () => {
         <button
           id="mobile-menu-toggle"
           className="lg:hidden focus:outline-none"
-        >
-          <svg
-            className="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        ></button>
       </nav>
 
       <div id="mobile-menu" className="lg:hidden hidden px-4 pb-4 space-y-2">

@@ -12,7 +12,7 @@ export default function Event() {
           <p className="text-5xl font-semibold text-gray-700 mb-2">
             Welcome to
           </p>
-          <h1 className="text-8xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent">
+          <h1 className="text-8xl font-extrabold  bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent">
             EventPass!
           </h1>
         </div>

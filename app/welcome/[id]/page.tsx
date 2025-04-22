@@ -45,107 +45,88 @@ const WelcomePage = () => {
       <Header />
 
       {error && (
-        <p className="text-red-500 bg-gradient-to-r from-red-500 to-yellow-400">
+        <p className="text-red-500 bg-gradient-to-r from-red-500 to-rd-500">
           Erreur: {error}
         </p>
       )}
-      <h1 className="text-2xl font-semibold flex  justify-center items-center mt-[50px] mb-4 ">
+      <h1 className="text-2xl font-semibold flex  justify-center items-center mt-[50px] mb-1 ">
         Bienvenue, {attendee?.name || "Utilisateur"}!🎉 ⭐👏
       </h1>
-      <div className="mt-auto p-10 ">
-        <div className=" h-auto max-w-[50%] rounded-3xl flex flex-col items-center shadow-3xl mx-auto mt-[100px]  bg-gray-900">
+      <div className=" overflow-hidden h-[100vh]">
+        <div className=" h-auto max-w-[50%] h-[60vh] rounded-3xl flex flex-col items-center shadow-3xl mx-auto mt-[100px]  bg-gray-900">
           <h2 className="text-xl text-white mx-auto p-5 flex font-medium flx">
             Votre carte d'invitation
           </h2>
-          <p className="font-tight text-white italic">
+          <p className="font-base/tight text-white italic">
             Merci pour votre participation!
           </p>
 
           {/*     Bouton pour télécharger l'image de la carte */}
           <button
             onClick={handleDownload}
-            className="px-4 py-2 bg-white text-black flex ml-auto mr-3 rounded-md hover:bg-[rgba(0,102,205,1)]  focus:outline-none"
+            className="px-1 py-2 bg-white text-black flex ml-auto mr-3 rounded-md hover:bg-[rgba(0,102,205,1)]  focus:outline-none"
           >
             Télécharger la carte
           </button>
 
-          <div className="flex justify-center mb-[70px]">
-            {/* Carte générée */}
-            <div
-              id="invitation-card"
-              className="bg-[url('/images/scattered.png')] bg- bg-cover bg-center bg-no-repeat w-full max-w-md p-2 max-h-lg  mx-auto"
-            >
-              <div className="text-center flex justify-between items-center w-full ">
-                <img
-                  src="/images/logo2.png"
-                  className="h-14 max-w-xs w-17 mb-4 object-contain"
-                  alt="Logo"
-                />
-                <h2 className="font-semibold text-xl mb-4 text-black ">
-                  www.sarrca.org
-                </h2>
-              </div>
-              <div className="max-w-xs mx-auto border-[rgba(128,0,0,1)] border-2 rounded-3xl overflow-hidden bg-[rgba(128,0,0,1)]">
-                <div className="flex justify-center ">
-                  <img
-                    src="/images/visuel1.jpeg"
-                    className="h-auto max-w-xs w-23 rounded-tl-lg rounded-tr-lg object-cover"
-                    alt="QR Code"
-                  />
-                </div>
-                <div className=" text-center text-white">
-                  <h1 className="flex text-4xl px-5 font-extrabold font-mono flex justify-center   p-3">
-                    VOUS ETES INVITE
-                  </h1>
-                  <h2 className="flex font-mono flex justify-center max-w-full font-extrabold text-md">
-                    Mr {attendee?.name}
-                  </h2>
-                </div>
-              </div>
-
-              <h1 className="tracking-tight text-[rgba(0,102,205,1)] pt-3 flex text-5xl  items-center font-extrabold font-mono flex justify-center ">
-                AU SARRCA
-                <span className="text-[rgba(128,0,0,1)] mx-4"> #10</span>
+          <div
+            id="invitation-card"
+            className="bg-[url('/images/back7.jpg')] h-[500px] w-[300px]   bg-cover bg-center"
+          >
+            <div className="bg-white w-[220px] my-20 rounded-3xl  mx-auto my-auto   shadow-3xl ">
+              <img
+                src="/images/logo4.jpeg"
+                alt=""
+                className="w-[120px] h-auto mx-auto mb-1 relative "
+              />
+              <h1 className="mx-auto text-[rgba(0,102,205,1)] justify-center text-[40px] items-center flex text-2xl font-extrabold ">
+                #10
               </h1>
-
-              <div className="py-3  items-baseline gap-4 flex-1 text-black">
-                <p className="font-thin italic  text-black text-sm w-full mx-auto ">
-                  INTELLIGENCE ARTIFICIEL ET EXPERIENCE......L'AFRIQUE S'ENGAGE
-                </p>
-                <h1 className="text-center font-extrabold">
-                  DU 23 AU 26 AVRIL
-                </h1>
-                <h1 className="text-center font-extrabold">
-                  HOTEL AKWA PALACE, Douala-Cameroun
-                </h1>
-              </div>
-              <div className="flex   h-auto gap-5 mt-7 text-back">
-                <div className="flex gap-1 flex-wrap max-w-xs h-13 items-center justify-center  border-2  border-[rgba(0,102,205,1)]  overflow-hidden rounded-3xl ">
-                  <img
-                    src="/images/call.png"
-                    className=" w-6  h-auto  object-contain"
-                    alt="QR Code"
-                  />
-                  <p>+23769354252</p>
-
-                  <img
-                    src="/images/internet.png"
-                    className="h-auto w-6 object-contain "
-                    alt="QR Code"
-                  />
-                  <p>www.sarrca.org</p>
-                  <img
-                    src="/images/mail.png"
-                    className="h-auto w-6 object-contain "
-                    alt="QR Code"
-                  />
-                  <p>contact@sarca.org</p>
-                </div>
-
+              <h1 className="mx-auto justify-center items-center flex text-xl font-bold ">
+                Pass visitor
+              </h1>
+              <img
+                src="/images/visuel1.jpeg"
+                alt=""
+                className="mx-auto border border-red-500/50 w-[100px] h-[] "
+              />
+              <h1 className="mx-auto  flex flex-col text-sm font-bold text-center">
+                <span className="text-base/tight font-light italic text-[12px]">
+                  Mme/Mr:
+                </span>
+                {attendee?.name}
+              </h1>
+              <h2 className="mx-auto text-sm text-center">
+                {attendee?.company}
+              </h2>
+              <div className="flex w-full justify-between items-center p-2">
                 <img
                   src="/images/qr.png"
-                  className="h-auto w-20 rounded-md object-cover"
+                  alt=""
+                  className="w-[50px]  mr-auto] ml-1"
                 />
+                <p className="font-base/tight font-bold mt-5 text-[10px]">
+                  ww.sarcca.org
+                </p>
+                <div className="grid grid-cols-5 gap-2 w-fit p-1 bg-white">
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                </div>
               </div>
             </div>
           </div>

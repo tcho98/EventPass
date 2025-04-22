@@ -19,4 +19,5 @@ model Attendee {
   email     String  @unique
   company   String
   telephone String  
+  role     String 
 }

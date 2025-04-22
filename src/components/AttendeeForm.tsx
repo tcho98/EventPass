@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 
 import Input from "@/components/ui/Input";
+import SelectPassType from "./ui/SelectPassType";
 
 const AttendeeForm = () => {
   const router = useRouter();
@@ -23,6 +24,8 @@ const AttendeeForm = () => {
       [name]: value,
     }));
   };
+
+  const [role, setRole] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -64,6 +67,7 @@ const AttendeeForm = () => {
         onChange={handleChange}
         required
       />
+      <SelectPassType value={role} onChange={(e) => setRole(e.target.value)} />
       <Input
         label="Société"
         name="company"
