@@ -57,7 +57,7 @@ const AttendeeForm = () => {
     }
 
     const phone = formData.telephone; // Sans le +
-    const invitationLink = "https://example.com/invitations/1234"; // Lien vers la carte
+    const invitationLink = "https://event-pass-ymba.vercel.app/welcome/{}"; // Lien vers la carte
     const message = `Bonjour 👋, voici votre carte d'invitation : ${invitationLink}`;
 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
