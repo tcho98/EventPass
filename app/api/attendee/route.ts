@@ -4,6 +4,7 @@ import prisma from "@/lib/prisma";
 
 export async function POST(req: Request) {
   const body = await req.json();
+  const role = body.role || "visitor";
 
   const attendee = await prisma.attendee.create({
     data: {
@@ -11,6 +12,7 @@ export async function POST(req: Request) {
       email: body.email,
       company: body.company,
       telephone: body.telephone,
+      role: role,
     },
   });
 

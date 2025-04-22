@@ -122,7 +122,8 @@ exports.Prisma.AttendeeScalarFieldEnum = {
   name: 'name',
   email: 'email',
   company: 'company',
-  telephone: 'telephone'
+  telephone: 'telephone',
+  role: 'role'
 };
 
 exports.Prisma.SortOrder = {
@@ -133,6 +134,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 

@@ -13,6 +13,21 @@ const WelcomePage = () => {
   const [attendee, setAttendee] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  //Fonction pour récupérer la couleur en fonction du rôle
+  const getColorForRole = (role: string) => {
+    switch (role) {
+      case "visitor":
+        return "bg-red-500"; // Rouge pour les visiteurs
+      case "conference":
+        return "bg-green-500"; // Vert pour les conférences
+      case "exhibitor":
+        return "bg-orange-500"; // Orange pour les exposants
+      case "speaker":
+        return "bg-blue-500"; // Bleu pour les intervenants
+      default:
+        return "bg-gray-500"; // Gris par défaut
+    }
+  };
   useEffect(() => {
     if (id) {
       fetch(`/api/attendee/${id}`)
@@ -30,7 +45,13 @@ const WelcomePage = () => {
   const handleDownload = () => {
     const cardElement = document.getElementById("invitation-card");
     if (cardElement) {
-      html2canvas(cardElement).then((canvas) => {
+      // Utilisation de html2canvas pour capturer l'élément
+      html2canvas(cardElement, {
+        useCORS: true, // Permet de capturer les images externes
+        allowTaint: true, // Permet la capture même avec des taints CORS
+        logging: true,
+        scale: 2, // Permet de loguer des informations pour déboguer
+      }).then((canvas) => {
         const imageURL = canvas.toDataURL("image/png");
         const link = document.createElement("a");
         link.href = imageURL;
@@ -73,7 +94,7 @@ const WelcomePage = () => {
             id="invitation-card"
             className="bg-[url('/images/back7.jpg')] h-[500px] w-[300px]   bg-cover bg-center"
           >
-            <div className="bg-white w-[220px] my-20 rounded-3xl  mx-auto my-auto   shadow-3xl ">
+            <div className="bg-white w-[220px] my-20 rounded-3xl  mx-auto    shadow-3xl ">
               <img
                 src="/images/logo4.jpeg"
                 alt=""
@@ -83,7 +104,7 @@ const WelcomePage = () => {
                 #10
               </h1>
               <h1 className="mx-auto justify-center items-center flex text-xl font-bold ">
-                Pass visitor
+                Pass {attendee?.role}
               </h1>
               <img
                 src="/images/visuel1.jpeg"
@@ -109,23 +130,14 @@ const WelcomePage = () => {
                   ww.sarcca.org
                 </p>
                 <div className="grid grid-cols-5 gap-2 w-fit p-1 bg-white">
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
-                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                  {Array.from({ length: 15 }).map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-1 h-1 ${getColorForRole(
+                        attendee?.role
+                      )} rounded-full`}
+                    ></div>
+                  ))}
                 </div>
               </div>
             </div>

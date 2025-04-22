@@ -10,6 +10,7 @@ type Attendee = {
   email: string;
   company?: string;
   telephone: string;
+  role: string;
 };
 
 export default function AttendeeTable({
@@ -56,6 +57,7 @@ export default function AttendeeTable({
               <th className="px-4 py-3">Email</th>
               <th className="px-4 py-3">Société</th>
               <th className="px-4 py-3">Téléphone</th>
+              <th className="px-4 py-3">role</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -66,6 +68,7 @@ export default function AttendeeTable({
                 <td className="px-4 py-2">{attendee.email}</td>
                 <td className="px-4 py-2">{attendee.company || "—"}</td>
                 <td className="px-4 py-2">{attendee.telephone}</td>
+                <td className="px-4 py-2">{attendee.role}</td>
               </tr>
             ))}
           </tbody>

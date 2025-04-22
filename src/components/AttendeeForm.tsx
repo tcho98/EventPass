@@ -15,6 +15,7 @@ const AttendeeForm = () => {
     email: "",
     company: "",
     telephone: "",
+    role: "",
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

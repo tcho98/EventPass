@@ -11,6 +11,7 @@ interface Attendee {
   email: string;
   company?: string;
   telephone?: string;
+  role: string;
 }
 const AttendeesPage = () => {
   const [attendees, setAttendees] = useState<Attendee[]>([]);
