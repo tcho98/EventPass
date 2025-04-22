@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -13,40 +14,40 @@ const Footer = () => {
           <div className="text-sm uppercase text-indigo-600 font-bold">
             Resources
           </div>
-          <a className="my-3 block text-white" href="/#">
+          <Link className="my-3 block text-white" href="/#">
             Documentation
-          </a>
-          <a className="my-3 block text-white" href="/#">
+          </Link>
+          <Link className="my-3 block text-white" href="/#">
             Tutorials
-          </a>
-          <a className="my-3 block text-white" href="/#">
+          </Link>
+          <Link className="my-3 block text-white" href="/#">
             Support <span className="text-teal-600 text-xs p-1">New</span>
-          </a>
+          </Link>
         </div>
         <div className="p-5">
           <div className="text-sm uppercase text-indigo-600 font-bold">
             Support
           </div>
-          <a className="my-3 block text-white" href="/#">
+          <Link className="my-3 block text-white" href="/#">
             Help Center
-          </a>
-          <a className="my-3 block text-white" href="/#">
+          </Link>
+          <Link className="my-3 block text-white" href="/#">
             Privacy Policy
-          </a>
-          <a className="my-3 block text-white" href="/#">
+          </Link>
+          <Link className="my-3 block text-white" href="/#">
             Conditions
-          </a>
+          </Link>
         </div>
         <div className="p-5">
           <div className="text-sm uppercase text-indigo-600 font-bold">
             Contact us
           </div>
-          <a className="my-3 block text-white" href="/#">
+          <Link className="my-3 block text-white" href="/#">
             12 malvin, Floor 4 San Francisco, CM
-          </a>
-          <a className="my-3 block text-white" href="/#">
+          </Link>
+          <Link className="my-3 block text-white" href="/#">
             contact@company.com
-          </a>
+          </Link>
         </div>
       </div>
 
