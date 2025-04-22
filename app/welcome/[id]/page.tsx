@@ -16,14 +16,18 @@ const WelcomePage = () => {
   //Fonction pour récupérer la couleur en fonction du rôle
   const getColorForRole = (role: string) => {
     switch (role) {
-      case "visitor":
-        return "bg-red-500"; // Rouge pour les visiteurs
+      case "visiteur":
+        return "bg-red-700"; // Rouge pour les visiteurs
       case "conference":
         return "bg-green-500"; // Vert pour les conférences
-      case "exhibitor":
+      case "exposant":
         return "bg-orange-500"; // Orange pour les exposants
       case "speaker":
-        return "bg-blue-500"; // Bleu pour les intervenants
+        return "bg-green-500";
+      case "formation":
+        return "bg-blue-500";
+      case "invité":
+        return "bg-yellow-500"; // Bleu pour les intervenants
       default:
         return "bg-gray-500"; // Gris par défaut
     }
@@ -94,11 +98,11 @@ const WelcomePage = () => {
             id="invitation-card"
             className="bg-[url('/images/back7.jpg')] h-[500px] w-[300px]   bg-cover bg-center"
           >
-            <div className="bg-white w-[220px] my-20 rounded-3xl  mx-auto    shadow-3xl ">
+            <div className="bg-white bg-center bg-cover w-[220px] my-[105px] rounded-3xl  mx-auto    shadow-3xl ">
               <img
                 src="/images/logo4.jpeg"
                 alt=""
-                className="w-[120px] h-auto mx-auto mb-1 relative "
+                className="w-[110px] h-auto mx-auto mb-1 relative "
               />
               <h1 className="mx-auto text-[rgba(0,102,205,1)] justify-center text-[40px] items-center flex text-2xl font-extrabold ">
                 #10
@@ -111,13 +115,10 @@ const WelcomePage = () => {
                 alt=""
                 className="mx-auto border border-red-500/50 w-[100px] h-[] "
               />
-              <h1 className="mx-auto  flex flex-col text-sm font-bold text-center">
-                <span className="text-base/tight font-light italic text-[12px]">
-                  Mme/Mr:
-                </span>
+              <h1 className="mx-auto  flex flex-col text-[13px] font-bold text-center">
                 {attendee?.name}
               </h1>
-              <h2 className="mx-auto text-sm text-center">
+              <h2 className="mx-auto text-[10px] text-center font-bold">
                 {attendee?.company}
               </h2>
               <div className="flex w-full justify-between items-center p-2">

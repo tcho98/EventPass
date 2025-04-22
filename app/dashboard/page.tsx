@@ -4,15 +4,8 @@ import AttendeeTable from "@/components/AttendeeTable";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React, { useEffect, useState } from "react";
+import { Attendee } from "@/types/attendee";
 
-interface Attendee {
-  id: number;
-  name: string;
-  email: string;
-  company?: string;
-  telephone?: string;
-  role: string;
-}
 const AttendeesPage = () => {
   const [attendees, setAttendees] = useState<Attendee[]>([]);
   const [loading, setLoading] = useState(true);

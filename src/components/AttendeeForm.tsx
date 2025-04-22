@@ -1,23 +1,24 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
-
 import Input from "@/components/ui/Input";
 import SelectPassType from "./ui/SelectPassType";
 
 const AttendeeForm = () => {
   const router = useRouter();
+
+  // Mise à jour de l'état pour formData incluant role
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     telephone: "",
-    role: "",
+    role: "", // rôle ajouté ici
   });
 
+  // Gérer les changements de champ
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,11 +27,19 @@ const AttendeeForm = () => {
     }));
   };
 
-  const [role, setRole] = useState("");
+  // Gérer le changement de rôle
+  const handleRoleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      role: value, // mettre à jour le rôle dans formData
+    }));
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
+      // Envoi de formData avec role inclus
       const res = await fetch("/api/attendee", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,12 +55,21 @@ const AttendeeForm = () => {
       console.error(error);
       alert("Une erreur est survenue.");
     }
+
+    const phone = "237692426014"; // Sans le +
+    const invitationLink = "https://example.com/invitations/1234"; // Lien vers la carte
+    const message = `Bonjour 👋, voici votre carte d'invitation : ${invitationLink}`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+
+    // Ouvrir cette URL dans le navigateur
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className=" w-full max-w-md overflow-hidden flex flex-col justify-center items-center  mx-auto mt-8 space-y-4 border-2 border-gray-300 p-4 rounded-lg shadow-xl"
+      className="w-full max-w-md overflow-hidden flex flex-col justify-center items-center mx-auto mt-8 space-y-4 border-2 border-gray-300 p-4 rounded-lg shadow-xl"
     >
       <Input
         label="Nom"
@@ -68,7 +86,16 @@ const AttendeeForm = () => {
         onChange={handleChange}
         required
       />
-      <SelectPassType value={role} onChange={(e) => setRole(e.target.value)} />
+      <SelectPassType
+        value={formData.role} // Utiliser formData.role ici
+        onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+          setFormData({
+            ...formData,
+            role: e.target.value, // Met à jour formData avec la valeur du rôle
+          })
+        }
+      />
+
       <Input
         label="Société"
         name="company"

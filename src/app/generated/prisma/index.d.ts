@@ -2034,15 +2034,15 @@ export namespace Prisma {
 
   export type AttendeeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    email?: string
     AND?: AttendeeWhereInput | AttendeeWhereInput[]
     OR?: AttendeeWhereInput[]
     NOT?: AttendeeWhereInput | AttendeeWhereInput[]
     name?: StringFilter<"Attendee"> | string
+    email?: StringFilter<"Attendee"> | string
     company?: StringNullableFilter<"Attendee"> | string | null
     telephone?: StringNullableFilter<"Attendee"> | string | null
     role?: StringFilter<"Attendee"> | string
-  }, "id" | "email">
+  }, "id">
 
   export type AttendeeOrderByWithAggregationInput = {
     id?: SortOrder
