@@ -56,7 +56,7 @@ const AttendeeForm = () => {
       alert("Une erreur est survenue.");
     }
 
-    const phone = "237692426014"; // Sans le +
+    const phone = formData.telephone; // Sans le +
     const invitationLink = "https://example.com/invitations/1234"; // Lien vers la carte
     const message = `Bonjour 👋, voici votre carte d'invitation : ${invitationLink}`;
 
