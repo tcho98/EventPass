@@ -1,0 +1,17 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@tailwind",
+      "description": "Utilisé pour insérer les styles de base, composants et utilitaires de Tailwind CSS."
+    },
+    {
+      "name": "@apply",
+      "description": "Permet d'appliquer des classes utilitaires à des sélecteurs CSS."
+    },
+    {
+      "name": "@layer",
+      "description": "Définit un bloc de styles à inclure dans une couche spécifique (base, composants, utilitaires)."
+    }
+  ]
+}
